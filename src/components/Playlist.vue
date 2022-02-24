@@ -1,5 +1,5 @@
 <template>
-    <div class="container" style="min-width: 960px;">
+    <div class="container bg-dark" style="min-width: 960px;">
         <div class="row">
             <div class="col-3">
                 <div class="p-4">
@@ -8,7 +8,7 @@
             </div>
 
             <div class="col-9">
-                <table class="table table-striped table-hover mt-4">
+                <table class="table mt-4 text-light">
                     <sort :songs="songs" @sortedSongs="sort_songs" />
                     <paginated :items="sortedSongs">
                         <template slot="custom_column" slot-scope="songList">
@@ -32,14 +32,12 @@
 import MusicSort from '@/components/MusicSort.vue'
 import PaginatedTableBody from '@/components/PaginatedTableBody.vue'
 import Playlists from '@/components/Playlists.vue'
-import SongPlayer from '@/components/SongPlayer.vue'
 
 export default {
     components: {
         'sort': MusicSort,
         'paginated': PaginatedTableBody,
-        'playlists': Playlists,
-        'player': SongPlayer
+        'playlists': Playlists
     },
     data() {
         return {

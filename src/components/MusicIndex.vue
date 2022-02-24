@@ -1,5 +1,5 @@
-<template class="bg-dark">
-    <div class="container" style="min-width: 960px;">
+<template>
+    <div class="container bg-dark">
         <div class="row">
             <div class="col-3">
                 <div class="p-4 sticky-top">
@@ -8,11 +8,11 @@
             </div>
 
             <div class="col-9">
-                <table class="table table-striped table-hover mt-4">
+                <table class="table mt-4 text-light">
                     <sort :songs="filteredSongs" @sortedSongs="sortSongs" class="sticky-top" />
                     <paginated :items="sortedSongs">
                         <template slot="add_title" slot-scope="songList" v-if="activePlaylists.length > 0">
-                            <a @click="add_song(songList.song, $event.target)" class="text-success">
+                            <a @click="add_song(songList.song, $event.target)" style="color: lime;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -23,7 +23,6 @@
                 </table>
             </div>
         </div>
-        <player />
     </div>
 </template>
 
@@ -32,14 +31,12 @@ import MusicData from '@/assets/list.json'
 import MusicSort from '@/components/MusicSort.vue'
 import PaginatedTableBody from '@/components/PaginatedTableBody.vue'
 import Playlists from '@/components/Playlists.vue'
-import SongPlayer from '@/components/SongPlayer.vue'
 
 export default {
     components: {
         'sort': MusicSort,
         'paginated': PaginatedTableBody,
-        'playlists': Playlists,
-        'player': SongPlayer
+        'playlists': Playlists
     },
     data() {
         return {

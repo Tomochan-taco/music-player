@@ -1,14 +1,14 @@
 <template>
-    <div class="card text-start border-0" :class="{'is-active': selectedPlaylistSlug === undefined}">
+    <div class="card text-start border-0 bg-dark" :class="{'is-active': selectedPlaylistSlug === undefined}">
         <router-link to="/" style="text-decoration: none;">
-            <div class="card-header border-0 p-1 mb-2 bg-transparent text-primary">
+            <div class="card-header border-0 p-1 mb-2" style="color: #ffa500;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                 <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
                 </svg>　
                 ホーム
             </div>
         </router-link>
-        <div class="card-header border-0 p-1 bg-transparent text-primary">
+        <div class="card-header border-0 p-1" style="color: #ffa500;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-music-note-list" viewBox="0 0 16 16">
             <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
             <path fill-rule="evenodd" d="M12 3v10h-1V3h1z"/>
@@ -22,7 +22,7 @@
         <ul class="list-unstyled">
             <template v-for="(playlist, index) in playlists">
                 <router-link v-if="!playlist.editing" :to="'/playlist/' + playlist.slug" :key="playlist.slug" :class="{'is-active': selectedPlaylistSlug === playlist.slug}" style="text-decoration: none; color: white;">
-                    <li class="bg-transparent text-secondary border-bottom my-1">{{ playlist.name }}</li>
+                    <li class="bg-transparent text-light border-bottom my-1">{{ playlist.name }}</li>
                 </router-link>
 
                 <form v-if="playlist.editing" @submit.prevent="edit_playlist(index)">
@@ -32,7 +32,7 @@
                     </div>
                 </form>
 
-                <div class="text-success">
+                <div style="color: lime;">
                     <a title="編集" @click="edit_playlist(index)" style="margin-right: 10px;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -77,7 +77,7 @@
                 </button>
             </div>
         </form>
-        <small>※ 半角英数のみ使用可</small>
+        <small class="text-light">※ 半角英数のみ使用可</small>
     </div>
 </template>
 

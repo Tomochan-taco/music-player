@@ -1,5 +1,5 @@
 <template>
-    <thead class="align-middle bg-white">
+    <thead class="align-middle bg-dark">
         <tr style="text-align: left; color: #ffa500;">
             <th scope="col" style="width: 10%;">#</th>
             <th scope="col" style="width: 25%;">
